@@ -5,21 +5,66 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>محمد خالد للشروحات 07714434273</title>
 <style>
-  html, body { margin:0; padding:0; background:#0b0d10; color:#c8ced8;
-               font:15px/1.45 "Segoe UI", system-ui, sans-serif; }
-  #wrap { padding:16px 18px; }
-  #state { font-size:22px; font-weight:700; margin:0 0 6px; }
-  #det { font-size:13px; color:#8b95a3; margin:0 0 4px; }
-  #det b { color:#c8ced8; font-weight:600; }
-  #cache { font-size:12px; color:#5c6672; margin:0 0 10px; min-height:14px; }
-  #cache.cacheok { color:#7fd0a0; }
-  .ok { color:#7fd0a0; } .bad { color:#d08a7f; } .warn { color:#d8c07f; }
-  #brand { text-align:center; padding:8px 10px; background:#0e1116;
-           border-bottom:1px solid #1e2732; }
-  #brand img { width:28px; height:28px; margin-right:8px; border-radius:50%;
-               vertical-align:middle; }
-  #brand b { font-size:15px; font-weight:700; letter-spacing:.14em;
-             color:#e6ebf2; vertical-align:middle; }
+
+:root{
+  --bg:#070b12;--panel:rgba(15,23,35,.82);--line:rgba(100,190,255,.22);
+  --text:#eef7ff;--muted:#91a5b8;--cyan:#58d8ff;--blue:#3b82f6;
+  --green:#70e6a1;--red:#ff7777;--gold:#ffd166;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;min-height:100%;background:
+  radial-gradient(circle at 50% 18%,rgba(34,120,210,.18),transparent 38%),
+  radial-gradient(circle at 15% 90%,rgba(0,220,255,.08),transparent 30%),
+  linear-gradient(135deg,#05080e,#0a111c 48%,#05080e);
+  color:var(--text);font:15px/1.5 "Segoe UI",system-ui,sans-serif;
+}
+body{display:flex;flex-direction:column;overflow-x:hidden}
+#brand{
+  position:relative;text-align:center;padding:18px 14px;
+  background:linear-gradient(180deg,rgba(12,24,39,.96),rgba(7,13,22,.9));
+  border-bottom:1px solid var(--line);
+  box-shadow:0 0 35px rgba(44,177,255,.10),inset 0 -1px 0 rgba(255,255,255,.04);
+}
+#brand:after{
+  content:"";position:absolute;left:12%;right:12%;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  opacity:.75;
+}
+#brand b{
+  display:inline-block;font-size:20px;font-weight:800;letter-spacing:.08em;
+  color:#fff;text-shadow:0 0 14px rgba(88,216,255,.45);
+}
+#wrap{
+  width:min(760px,calc(100% - 32px));margin:44px auto;padding:28px;
+  background:var(--panel);border:1px solid var(--line);border-radius:22px;
+  box-shadow:0 20px 70px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.04);
+  backdrop-filter:blur(12px);text-align:center;
+}
+#state{
+  font-size:27px;font-weight:800;margin:0 0 12px;color:#fff;
+  text-shadow:0 0 18px rgba(88,216,255,.22);
+}
+#state:before{content:"PS4  •  ";color:var(--cyan);font-size:.55em;vertical-align:middle;letter-spacing:.12em}
+#det{
+  display:inline-block;font-size:14px;color:var(--muted);margin:4px 0 8px;
+  padding:8px 14px;border:1px solid rgba(255,255,255,.08);border-radius:999px;
+  background:rgba(255,255,255,.025);
+}
+#det b{color:#e8f6ff;font-weight:700}
+#cache{
+  min-height:22px;font-size:13px;color:#73889c;margin:10px 0 0;
+}
+#cache.cacheok{color:var(--green);text-shadow:0 0 10px rgba(112,230,161,.25)}
+.ok{color:var(--green)}.bad{color:var(--red)}.warn{color:var(--gold)}
+#state.bad{color:var(--red);text-shadow:0 0 18px rgba(255,119,119,.25)}
+#state.warn{color:var(--gold);text-shadow:0 0 18px rgba(255,209,102,.22)}
+@media(max-width:600px){
+  #wrap{width:calc(100% - 22px);padding:22px 16px;margin:28px auto}
+  #brand b{font-size:16px;letter-spacing:.04em}
+  #state{font-size:22px}
+}
+
 </style>
 </head>
 <body>
