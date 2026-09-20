@@ -1,98 +1,199 @@
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html lang="en" manifest="cache.appcache">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>محمد خالد للشروحات 07714434273RAW GAME</title>
-    <style>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-:root{
-  --bg:#05080e;--panel:rgba(11,18,29,.84);--line:rgba(83,205,255,.22);
-  --text:#f2f8ff;--muted:#8fa4b8;--cyan:#57d9ff;--green:#73e3a0;
-  --red:#ff7474;--gold:#ffd166;
-}
-*{box-sizing:border-box}
-html,body{
-  margin:0;padding:0;min-height:100%;background:
-  radial-gradient(circle at 50% 28%,rgba(52,150,255,.17),transparent 34%),
-  linear-gradient(145deg,#03060b,#09121f 52%,#03060b);
-  color:var(--text);font:15px/1.45 "Segoe UI",system-ui,sans-serif;
-}
-#brand{
-  position:relative;text-align:center;padding:18px 12px;
-  background:linear-gradient(180deg,rgba(10,23,38,.97),rgba(5,11,19,.94));
-  border-bottom:1px solid var(--line);
-  box-shadow:0 8px 35px rgba(0,0,0,.25);
-}
-#brand:before{
-  content:"";position:absolute;top:0;left:50%;width:180px;height:2px;
-  transform:translateX(-50%);background:var(--cyan);
-  box-shadow:0 0 18px var(--cyan);
-}
-#brand b{
-  font-size:20px;font-weight:800;letter-spacing:.08em;color:#fff;
-  text-shadow:0 0 16px rgba(87,217,255,.45);
-}
-#spin{
-  position:fixed;top:50%;left:50%;width:58px;height:58px;
-  margin:-29px 0 0 -29px;border:4px solid rgba(87,217,255,.13);
-  border-top-color:var(--cyan);border-right-color:rgba(87,217,255,.55);
-  border-radius:50%;animation:spin .85s linear infinite;
-  box-shadow:0 0 28px rgba(87,217,255,.18);
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-#msg{
-  position:fixed;top:50%;left:50%;right:auto;transform:translate(-50%,-50%);
-  min-width:min(430px,calc(100% - 34px));padding:24px 28px;text-align:center;
-  font-size:18px;font-weight:700;letter-spacing:.3px;
-  color:#fff;background:var(--panel);border:1px solid var(--line);
-  border-radius:20px;box-shadow:0 20px 70px rgba(0,0,0,.5),0 0 30px rgba(87,217,255,.08);
-  backdrop-filter:blur(12px);display:none;
-}
-#msg:before{content:"PS4  •  ";color:var(--cyan)}
-#wrap{padding:0;max-width:1100px;margin:0 auto;width:100%}
-#state,#out{display:none}
-body.done #spin,body.fail #spin{display:none}
-body.fail #msg{display:block}
-body.log #spin,body.log #msg{display:none}
-body.log #wrap{padding:24px 20px}
-body.log #state{
-  display:block;max-width:1100px;margin:0 auto 14px;padding:18px 20px;
-  font-size:25px;font-weight:800;border:1px solid var(--line);
-  border-radius:18px;background:var(--panel);
-  box-shadow:0 14px 40px rgba(0,0,0,.25);
-}
-body.log #state:before{content:"PS4  •  ";color:var(--cyan);font-size:.65em}
-body.log #out{
-  display:block;white-space:pre-wrap;font:12px/1.55 Consolas,monospace;
-  color:#cfe5f5;background:rgba(4,9,16,.92);
-  border:1px solid var(--line);border-radius:16px;padding:16px;
-  height:calc(100vh - 150px);overflow-y:auto;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 15px 45px rgba(0,0,0,.3);
-}
-.ok{color:var(--green)}.bad{color:var(--red)}.warn{color:var(--gold)}
-.safe{color:var(--green)}.danger{color:var(--red)}code{color:#9edaff}
-@media(max-width:600px){
-  #brand b{font-size:16px;letter-spacing:.04em}
-  body.log #wrap{padding:14px 10px}
-  body.log #state{font-size:20px}
-  body.log #out{font-size:11px;padding:12px}
+<title>محمد خالد للشروحات 07714434273</title>
+
+<style>
+/* =========================================================
+   صورة الخلفية - غيّر اسم الصورة هنا فقط
+   ========================================================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #05070a url("background.jpg") center center / cover fixed no-repeat;
+    color: #e8edf5;
+    font: 15px/1.45 "Segoe UI", system-ui, sans-serif;
 }
 
+/* طبقة تعتيم فوق الخلفية */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3,5,8,.72),
+            rgba(3,5,8,.84)
+        );
+    z-index: -1;
+}
+
+/* الحاوية */
+#wrap {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 28px 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* البطاقة الرئيسية */
+.card {
+    width: min(720px, 100%);
+    box-sizing: border-box;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 22px;
+    background: rgba(10,13,18,.78);
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* الشعار */
+#brand {
+    text-align: center;
+    padding: 4px 10px 24px;
+}
+
+#brand img {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 12px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow:
+        0 0 25px rgba(255,255,255,.12);
+}
+
+#brand b {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: .18em;
+    color: #ffffff;
+}
+
+/* خط تحت الشعار */
+.brand-line {
+    width: 80px;
+    height: 2px;
+    margin: 14px auto 0;
+    background: rgba(255,255,255,.35);
+    border-radius: 20px;
+}
+
+/* الحالة */
+#state {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 8px 0 10px;
+    color: #ffffff;
+    text-shadow: 0 3px 20px rgba(0,0,0,.45);
+}
+
+/* معلومات النظام */
+#det {
+    text-align: center;
+    font-size: 15px;
+    color: #aab4c2;
+    margin: 0 0 8px;
+}
+
+#det b {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* حالة الكاش */
+#cache {
+    text-align: center;
+    font-size: 13px;
+    color: #727d8b;
+    min-height: 20px;
+    margin-top: 8px;
+}
+
+#cache.cacheok {
+    color: #7fd0a0;
+}
+
+/* الحالات */
+.ok {
+    color: #7fd0a0;
+}
+
+.bad {
+    color: #ff8279;
+}
+
+.warn {
+    color: #e6c875;
+}
+
+/* صندوق المعلومات */
+.info {
+    margin-top: 24px;
+    padding: 15px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.07);
+    background: rgba(255,255,255,.035);
+    text-align: center;
+    color: #7f8b99;
+    font-size: 12px;
+}
+
+/* إضاءة عند الحالات المهمة */
+#state.bad {
+    text-shadow: 0 0 22px rgba(255,80,70,.22);
+}
+
+#state.warn {
+    text-shadow: 0 0 22px rgba(230,200,117,.20);
+}
+
+/* الموبايل */
+@media (max-width: 600px) {
+    #wrap {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 22px 17px;
+        border-radius: 18px;
+    }
+
+    #state {
+        font-size: 23px;
+    }
+
+    #brand b {
+        font-size: 17px;
+    }
+}
 </style>
-  </head>
-  <body>
-    <div id="brand">
-      <b>محمد خالد للشروحات 07714434273</b>
-    </div>
-    <div id="spin"></div>
-    <div id="msg">Restart your console</div>
-    <div id="wrap">
-      <div id="state"></div>
-      <div id="out"></div>
-    </div>
-    <script type="module">
-      import "./jb.js?v=10";
-    </script>
-  </body>
-</html>
+</head>
+
+<body>
+
+<div id="wrap">
+
+    <div class="card">
+
+        <div id="brand">
+
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAA3tUlEQVR42t29d5xV5bn3/b3v1XaZmT3MDG2Gjoo0KQJSREHAEvuJYowxia9503NSjq9PmtEkGp9TzJNzTo6aclLURANJNBELIgIqVRAQkI44Q2f67LLqfb9/7L3HYZiBQUly8uzPZ39mZs1ea691XffVfle5BX/Dl9ZaAhKIhBC6eFwIgVJqYBiGI48cOTI6Foudb9v2kCiKqtva2ipbWlpKwjCMKaVMIQSGYYSGYbi+76czmUxDNps95Pv+/ubm5h1tbW3bGhsbt99zzz11nb5bLF++3Fi+fLn67ne/q/5WNBB/A6KLAtG1EEJ1OD44l8tN9zzv0kwmMymKonOAVBAEKKUIwxClFFEUEYYhWut2ZhWYgGVZaK2JogjDMHBdl+bmZlpbW1uy2eyeXC63PpvNrjh69OiqBx544N2OC2HhwoVi/vz5CtD/VzKguOJmz54ddjg2vKGh4dpMJnOD67pTDMOIh2GI67q4rksURdo0TVUgshBCIKUUUkpRJHyREVprtNZaCKELxzRAFEVSSim01iilyGQyNDY25lzXXed53jPHjx9/9u67795bvKd7773XvO+++06QyL93BgittRRCRAVCWYcOHbo6nU7f4bruPNu247lcjlwuh5Qysm1bG4YhbdsWhmG0E7r4Lq76ItE7MbkjM9rfSimtlNKAiqJIKKUMAN/3OX78eM513SXZbPaX//7v//7chg0bgsI1jIKE6r9bBixYsMCYP39+BHD06NGShoaGj3ue9zkhxBilFK7rYllW6DiOsCxLmqYppJRdEvsMJK2nDFFKKR1Fk
+```
